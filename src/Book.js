@@ -4,8 +4,8 @@ const Book = (props) => {
   let bookList = []
   if (props.bookshelf !== 'none') {
     bookList = props.books.filter((b) => {
-  if ((b.shelf === props.bookshelf) && (b !== 'undefined')) { return b;
-      }
+      if ((b.shelf === props.bookshelf) && (b !== 'undefined') && (b !== 'none')) { return b;
+        }
       return false
     })
   }
