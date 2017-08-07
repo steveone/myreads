@@ -8,7 +8,6 @@ import Book from './Book'
 
     let uniqueShelf = [];
 
-    console.log("in bookshelf")
     return (
 <div>
 <div className="bookshelf">
@@ -20,11 +19,9 @@ import Book from './Book'
   <div key={b.shelf}>
   <h2 className="bookshelf-title">{b.shelf}</h2>
   <div className="bookshelf-books">
-{console.log("Adsfadsf")}
-        <Book bookshelf={b.shelf} books={props.books} changeShelf={props.changeShelf}/>
-
+    <Book bookshelf={b.shelf} books={props.books} changeShelf={props.changeShelf}/>
   </div>
-  </div>
+</div>
 
 )
 
