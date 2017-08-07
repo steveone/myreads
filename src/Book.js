@@ -34,9 +34,9 @@ return (
     <div className="book-authors">{b.authors}</div>
   </div>
   </li>
-
-)
-}
-</ol>)
+  )
+ }
+ </ol>
+ )
 }
 export default Book
