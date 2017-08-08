@@ -13,8 +13,8 @@ class Search extends Component {
 
   //TODO: handle adding book from search to shelf
   //      or changing to new shelf if it was already on a shelf
-  changeShelf = (id,shelf) => {
-    this.props.addBookToShelf(id,shelf);
+  changeShelf = (book,shelf) => {
+    this.props.addBookToShelf(book,shelf);
     return true;
     }
 

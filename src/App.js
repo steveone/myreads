@@ -28,6 +28,8 @@ addBookToShelf = (book,shelf) =>
         this.setState({
           books: currentBookShelf
           })
+        //update book on server
+        BooksAPI.update(book,shelf)
       }
     }
 
