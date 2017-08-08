@@ -2,7 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import Search from './Search'
-import Listbooks from './List-books'
+import Listbooks from './Listbooks'
 import './App.css'
 
 class BooksApp extends React.Component {
@@ -41,8 +41,9 @@ changeBookShelf = (book,shelf) => {
     currentState[0].shelf= shelf
     //update state with the current book minus the book changing state
     //and then concatinate the book that changed shelfs back to the array
+    let changeBookAtIndex = this.state.books.findIndex((current) => (current.id === book.id));
     this.setState({
-      books: [...this.state.books.filter(b => b.id !== book.id),...currentState]
+      books: [...this.state.books.filter((b,index) => index < changeBookAtIndex),...currentState,...this.state.books.filter((b,index) => index > changeBookAtIndex)]
       })
   //TODO: update book on server to new shelf
    BooksAPI.update(book,shelf)

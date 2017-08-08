@@ -15,6 +15,20 @@ class Search extends Component {
   //      or changing to new shelf if it was already on a shelf
   changeShelf = (book,shelf) => {
     this.props.addBookToShelf(book,shelf);
+
+    //get current book and it's state
+    let currentState = this.state.searchBooks.filter(b => b.id === book.id);
+    //change the shelf of the book we are moving
+    currentState[0].shelf= shelf
+    //update state with the current book minus the book changing state
+    //and then concatinate the book that changed shelfs back to the array
+    //get Index of book to be updated to allow us to update but keep books showing in the same order
+    let changeBookAtIndex = this.state.searchBooks.findIndex((current) => (current.id === book.id));
+    this.setState({
+      searchBooks: [...this.state.searchBooks.filter((b,index) => index < changeBookAtIndex),...currentState,...this.state.searchBooks.filter((b,index) => index > changeBookAtIndex)]
+    })
+    console.log (this.state.searchBooks);
+
     return true;
     }
 
