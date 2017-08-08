@@ -43,7 +43,7 @@ changeBookShelf = (book,shelf) => {
       books: [...this.state.books.filter(b => b.id !== book.id),...currentState]
       })
   //TODO: update book on server to new shelf
-   BooksAPI.update(book.id,shelf)
+   BooksAPI.update(book,shelf)
   }
 
   //TODO: when the book display mounts, get all books currently on shelfs for display

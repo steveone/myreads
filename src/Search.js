@@ -36,9 +36,12 @@ class Search extends Component {
         if (books.length > 0) {
           books = books.map((b) => {
             let index = this.state.inBookShelf.findIndex((current) => (current.id === b.id));
-            if (index !== -1) {
+            if (index !== -1) { //if the book returned by search is on a shelf, update shelf
                b.shelf = this.state.inBookShelf[index].shelf;
               }
+            else { //if no shelf match, set shelf to none
+              b.shelf = 'none';
+            }
             return b
           })
         books = books.filter((b,index) => (books.findIndex(current => current.id === b.id) === index))
