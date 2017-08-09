@@ -1,8 +1,4 @@
 import React from 'react'
-
-
-
-//const Book = (props) => {
 class Book extends React.Component {
 
 render(props){
@@ -25,6 +21,10 @@ render(props){
 
 return (
       <ol className="books-grid">
+      {/*TODO: see if you can fix the line below based on suggestion
+        from previous reviewer, could not get to work easily
+        bookList && bookList.length > 0 && bookList.map((b) => ())
+      */}
         {bookList === 'undefined' || bookList.map((b = []) =>
         <li key={b.id}>
         <div className="book">
@@ -44,7 +44,7 @@ return (
             <div className="book-authors">{b.authors}</div>
           </div>
         </li>
-        )}
+      )}
       </ol>
     )}
   }

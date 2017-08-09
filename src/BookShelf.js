@@ -3,16 +3,18 @@ import Book from './Book'
 
 class BookShelf extends React.Component {
 
-
   render(props){
-    let uniqueShelf = [];
+    const currentlyReading = this.props.books.filter(book => book.shelf === 'currentlyReading');
+    const wantToRead = this.props.books.filter(book => book.shelf === 'wantToRead');
+    const read = this.props.books.filter(book => book.shelf === 'read');
+    const displayBooks = [...currentlyReading,...wantToRead,...read];
     return (
     <div>
       <div className="bookshelf">
         {
-
-          this.props.books.map((b) => {
+         displayBooks.map((b) => {
             let showName = ''
+            let uniqueShelf = [];
             if (uniqueShelf.indexOf(b.shelf) === -1) {
                 uniqueShelf.push(b.shelf);
                   //TODO: reaname shelf names to nicer formatter names
@@ -26,10 +28,11 @@ class BookShelf extends React.Component {
                       <Book bookshelf={b.shelf} books={this.props.books} changeShelf={this.props.changeShelf}/>
                       </div>
                     </div>
-                  )} //end if (uniqueShelf)
+                  )//} //end if (uniqueShelf)
               return false
+            }
           }
-      )}
+        )}
     </div>
   </div>
   )}
